@@ -1,0 +1,15 @@
+.empty {
+  display: flex;
+  text-align: start;
+  padding: 22px 75px;
+  max-width: 1300px;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 24px;
+  color: #dfcf77;
+  font-weight: 700;
+}
+
+.title {
+  right: 260px;
+}

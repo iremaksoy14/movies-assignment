@@ -1,0 +1,13 @@
+.errorMessage {
+  z-index: 100;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: #d96666;
+  color: #eee5b5;
+  border-radius: 5px;
+
+  font-size: 14px;
+  line-height: 17px;
+}

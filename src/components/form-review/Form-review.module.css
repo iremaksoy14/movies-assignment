@@ -1,0 +1,29 @@
+.textarea::-webkit-input-placeholder {
+  color: #bb9fa5;
+}
+
+.textarea:-moz-placeholder { /* Firefox 18- */
+  color: #bb9fa5;
+}
+
+.textarea::-moz-placeholder {  /* Firefox 19+ */
+  color: #bb9fa5;
+}
+
+.textarea:-ms-input-placeholder {
+  color: #bb9fa5;
+}
+
+.textarea::placeholder {
+  color: #bb9fa5;
+}
+
+.buttonDisabled:disabled {
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  color: #d96666;
+  text-align: center;
+  font-size: 14px;
+}

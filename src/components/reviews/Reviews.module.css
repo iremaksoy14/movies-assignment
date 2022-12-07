@@ -1,0 +1,16 @@
+.reviewsWrap {
+  width: auto;
+  margin-right: 0px;
+  max-width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 60px;
+}
+
+.noReviews {
+  color: #252525;
+  font-size: 19px;
+  line-height: 27px;
+}
