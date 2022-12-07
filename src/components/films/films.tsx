@@ -27,6 +27,7 @@ function Films({films, children}: FilmsProps): JSX.Element {
   return (
     <>
       <div className="catalog__films-list">
+     
         {films.map((film: FilmType) => (
           <Film
             film={film}
