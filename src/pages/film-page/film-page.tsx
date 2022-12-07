@@ -33,10 +33,9 @@ function FilmPage(): JSX.Element {
 
   return (
     <>
-      <section className="film-card film-card--full">
-        <div className="film-card__hero">
+      <section className="film-card film-card--full" style={{backgroundColor:"#990000"}}>
+        <div className="film-card__hero"  style={{backgroundColor:"#ff0000"}}>
           <div className="film-card__bg">
-            <img src={previewImage} alt={name} />
           </div>
           <h1 className="visually-hidden">WTW</h1>
           <Header />
@@ -92,7 +91,7 @@ function FilmPage(): JSX.Element {
         </div>
       </section>
 
-      <div className="page-content">
+      <div className="page-content" style={{backgroundImage:"none",backgroundColor:"#990000"}}>
         <SimilarFilms />
         <Footer />
       </div>

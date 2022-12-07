@@ -9,12 +9,7 @@ function SimilarFilms(): JSX.Element {
   const showedSimilarFilms = similarFilms.slice(0, Settings.NUMBER_OF_SIMILAR_FILMS);
 
   return (
-    <section className="catalog catalog--like-this">
-      <h2 className="catalog__title">More like this</h2>
-      {similarFilms.length === 0
-        ? <div>There are no similar films...</div>
-        : <Films films={showedSimilarFilms}/>}
-    </section>
+    <section className="catalog catalog--like-this"></section>
   );
 }
 
