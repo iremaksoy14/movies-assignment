@@ -60,6 +60,8 @@ export const clearErrorAction = createAsyncThunk(
 );
 
 // ---------- DATA ----------
+
+
 export const fetchFilmsAction = createAsyncThunk<[] | FilmType[], undefined, {
   dispatch: AppDispatch,
   state: State,

@@ -1,8 +1,9 @@
-import React, {useState,PropsWithChildren} from 'react'
+import React, {useState,PropsWithChildren, useEffect} from 'react'
 import Film from '../film/film';
 import { FilmType } from '../../types/film-type';
 
 import List from './List'
+import { fetchFilmAction } from '../../store/api-actions';
 type FilmsProps = PropsWithChildren<{
   films: FilmType[],
 }>
@@ -12,6 +13,8 @@ const SearchBox = ({films, children}: FilmsProps) :JSX.Element => {
 
   
   const [searchInput, setSearchInput] = useState("");
+  const newMovies=[]
+
  
   const countries = [
  
@@ -46,12 +49,25 @@ const SearchBox = ({films, children}: FilmsProps) :JSX.Element => {
  const calculate=()=>{
  var result= films.map((film: FilmType) => {
        console.log(films)
-   return  film.name.toLowerCase().includes(searchInput)
+       if(film.name.toLowerCase().includes(searchInput)){
+        return film.name
+       }
+      
+         
    
   })
   console.log(result)
+  result.map((item)=>{
+    if(item!==undefined){
+      
+      newMovies.push(item)
+    }
+  })
+
+ 
 
  }
+
  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
    e.preventDefault();
    console.log(e.target.value)
@@ -64,16 +80,7 @@ const SearchBox = ({films, children}: FilmsProps) :JSX.Element => {
  
  <div className="main">
       <h1>React Search</h1>
-      <div className="search" style={{display:"flex",flexDirection:"column"}}>
-        <input type="text" 
-         value={searchInput}
-         onChange={handleChange}
-          
-         
-        />
-        
-          <button onClick={calculate}>Search</button>
-      </div>
+     
     
     
       

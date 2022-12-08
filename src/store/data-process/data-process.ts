@@ -10,6 +10,7 @@ import {
   fetchPromoFilmAction,
   fetchFavoriteFilmsAction,
   addFilmToFavorites,
+
   fetchReviewsAction,
   sendReview,
 } from '../api-actions';
@@ -55,6 +56,7 @@ export const dataProcess = createSlice({
         state.genres = getGenresList(action.payload);
         state.films = action.payload;
       })
+  
       .addCase(fetchFilmAction.pending, (state) => {
         state.isFilmLoaded = false;
       })
