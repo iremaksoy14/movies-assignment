@@ -21,20 +21,25 @@ function Films({films, children}: FilmsProps): JSX.Element {
   console.log(selector)
   const [activeFilm, setActiveFilm] = useState<undefined | number>(undefined);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [searchInput, setSearchInput] = useState("");
-  const [tempAray, setTempArray] = useState<Provider[]>(selector)
 
-  const dispatch = useAppDispatch();
+  const [searchInput, setSearchInput] = useState("");
   interface Provider extends FilmType {
     id:number,
     name:string,
     description:string,
     backgroundImage:string
 }
+  const [tempAray, setTempArray] = useState<Provider[]>(selector)
+
+  const dispatch = useAppDispatch();
+
 useEffect(()=>{
+ 
   setTempArray(selector)
 },[selector])
 console.log(tempAray)
+
+
 
 
 
@@ -71,6 +76,11 @@ console.log(tempAray)
 
      }
      console.log(newMovies)
+     
+    //  if(newMovies.length>2){
+    //   newMovies=newMovies.splice(2)
+    //  }
+     console.log(newMovies)
       setTempArray(newMovies)
      console.log(tempAray)
      
@@ -99,7 +109,7 @@ console.log(tempAray)
       </div>
       <div className="catalog__films-list">
     
-    {tempAray.map((film: FilmType) => (
+    {tempAray.map((film: Provider) => (
           <Film
             film={film}
             key={film.id}

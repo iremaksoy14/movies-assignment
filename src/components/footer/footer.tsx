@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AppRoute } from '../../constants/constants';
-
+import './footers.css'
 function Footer(): JSX.Element {
   const {pathname} = useLocation();
 
@@ -11,12 +11,8 @@ function Footer(): JSX.Element {
 
   return (
     <footer className="page-footer">
-      <div className="logo">
-        <Link className="logo__link logo__link--light" to={AppRoute.Root}>
-          <span className="logo__letter logo__letter--1">W</span>
-          <span className="logo__letter logo__letter--2">T</span>
-          <span className="logo__letter logo__letter--3">W</span>
-        </Link>
+      <div className="logo footer_text">
+        <p>Q&Q MOVIES APP</p>
       </div>
 
       <div className="copyright">

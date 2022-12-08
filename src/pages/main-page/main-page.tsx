@@ -15,7 +15,7 @@ function MainPage(): JSX.Element {
     <div>
       <div className="page-content">
         <div style={{display:"flex",flexDirection:"row",justifyContent:'space-between'}}>
-        <h1>MOVIES APP</h1>
+        <h1>  Q&Q MOVIES APP</h1>
         <SearchBox films={films}/>
         </div>
         

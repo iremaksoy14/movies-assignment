@@ -79,7 +79,7 @@ const SearchBox = ({films, children}: FilmsProps) :JSX.Element => {
  return <div style={{display:"flex",flexDirection:"row",justifyContent:'center',alignItems:"center"}}>
  
  <div className="main">
-      <h1>React Search</h1>
+      <h1></h1>
      
     
     
