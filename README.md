@@ -2,6 +2,10 @@
 
 #npm start
 
+LOGIN INFORMATION:
+email:test@test.com
+password:test123
+
 ANASAYFA
 
 ![anasayfa](https://user-images.githubusercontent.com/60525860/206877670-1ef240dc-5745-4499-9956-fc23046f3441.png)
