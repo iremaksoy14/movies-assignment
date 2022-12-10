@@ -12,12 +12,19 @@ import Logo from '../../components/logo/logo';
 import { Button, Col, Container, Form, Navbar } from "react-bootstrap";
 import { AuthContext } from "../../context/AuthContext";
 import { auth } from "../../firebaseSetup";
+import { Button, Col, Container, Form, Navbar } from "react-bootstrap";
+import { AuthContext } from "../../context/AuthContext";
+import { auth } from "../../firebaseSetup";
 import Footer from '../../components/footer/footer';
 import { PASSWORD_REGEXP, ServerResponseStatusCode } from '../../constants/constants';
 import { getError } from '../../store/ui-process/selectors';
 import { sign } from 'crypto';
 
 function SignInPage(): JSX.Element {
+  const user = useContext(AuthContext);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
   const user = useContext(AuthContext);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -127,7 +134,7 @@ function SignInPage(): JSX.Element {
 
           <div className="sign-in__fields">
             <div className={cn('sign-in__field', {'sign-in__field--error': !isEmailValid})}>
-              <input ref={emailRef} 
+              <input ref={emailRef}  ref={emailRef} 
                 className="sign-in__input"
                 type="email"
                 placeholder="Email address"
@@ -139,7 +146,7 @@ function SignInPage(): JSX.Element {
               <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
             </div>
             <div className={cn('sign-in__field', {'sign-in__field--error': !isPasswordValid})}>
-              <input  ref={passwordRef}
+              <input  ref={passwordRef}  ref={passwordRef}
                 className="sign-in__input"
                 type="password"
                 placeholder="Password"
@@ -153,7 +160,8 @@ function SignInPage(): JSX.Element {
           </div>
           <div className="sign-in__submit">
            
-            <button  onClick={signIn}
+           
+            <button  onClick={signIn}  onClick={signIn}
               className="sign-in__btn"
             
             >

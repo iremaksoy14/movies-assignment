@@ -14,7 +14,7 @@ import FilmOverview from '../film-overview/film-overview';
 import Reviews from '../reviews/reviews';
 import PrivateRoute from '../private-route/private-route';
 import { AppRoute } from '../../constants/constants';
-
+import Login from '../../components/login/login';
 function App(): JSX.Element {
   return (
     <HistoryRouter history={browserHistory}>
