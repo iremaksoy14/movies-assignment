@@ -15,5 +15,10 @@ export type FilmType = {
   runTime: number
   genre: string
   released: number
-  isFavorite: boolean
+  isFavorite: boolean,
+  Title:string,
+  Year:string,
+  imdbID:string,
+  Type:string,
+  Poster:string
 };

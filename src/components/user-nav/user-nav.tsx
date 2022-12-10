@@ -7,13 +7,16 @@ import { logoutAction } from '../../store/api-actions';
 import { AppRoute } from '../../constants/constants';
 import { AuthorizationStatus } from '../../constants/constants';
 import { getUserAvatar } from '../../services/user-data';
+import { auth } from "../../firebaseSetup";
 
 function UserNav(): JSX.Element {
   const authorizationStatus = useSession();
   const avatarUrl = getUserAvatar();
   const dispatch = useAppDispatch();
 
-  const handleLogOut = () => {
+ 
+  const signOut = async () => {
+    await auth.signOut();
     dispatch(logoutAction());
   };
 
@@ -30,7 +33,7 @@ function UserNav(): JSX.Element {
             <Link
               className="user-block__link"
               to={AppRoute.Login}
-              onClick={handleLogOut}
+              onClick={signOut}
             >
               Sign out
             </Link>

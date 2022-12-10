@@ -56,7 +56,7 @@ console.log(tempAray)
       setSearchInput(e.target.value);
       var result= films.map((film: FilmType) => {
 
-        if(film.name.toLowerCase().includes(e.target.value)){
+        if(film.Title.toLowerCase().includes(e.target.value)){
          return film
         }
 
@@ -110,14 +110,19 @@ console.log(tempAray)
       <div className="catalog__films-list">
     
     {tempAray.map((film: Provider) => (
-          <Film
-            film={film}
-            key={film.id}
-            onMouseOver={() => handleCardHover(film.id)}
-            onMouseLeave={handleCardLeave}
-            activeFilm={activeFilm}
-            isPlaying={isPlaying}
-          />
+          <article className="small-film-card catalog__films-card" 
+          onMouseOver={() => handleCardHover(film.Title)}
+          onMouseLeave={handleCardLeave}>
+
+      
+    
+          <Link to={`/films/${film.id}/overview`} className={`small-film-card__image ${styles.card}`} >
+            <img src={film.Poster} alt={name} width="280" height="175" />
+          </Link>
+          <h3 className="small-film-card__title">
+            <Link to={`/films/${film.id}/overview`}  className="small-film-card__link" >{film.Title}</Link>
+          </h3>
+        </article>
         ))}
 
             </div>

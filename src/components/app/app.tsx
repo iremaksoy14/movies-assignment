@@ -10,7 +10,7 @@ import AddReviewPage from '../../pages/add-review-page/add-review-page';
 import PlayerPage from '../../pages/player-page/player-page';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import FilmOverview from '../film-overview/film-overview';
-import FilmDetails from '../film-details/film-details';
+
 import Reviews from '../reviews/reviews';
 import PrivateRoute from '../private-route/private-route';
 import { AppRoute } from '../../constants/constants';
@@ -25,6 +25,8 @@ function App(): JSX.Element {
             <MainPage />
           }
         />
+       
+
 
         <Route
           path={AppRoute.Login}
@@ -38,7 +40,7 @@ function App(): JSX.Element {
           }
         >
           <Route path="overview" element={<FilmOverview /> } />
-          <Route path="details" element={<FilmDetails /> } />
+      
           <Route path="reviews" element={<Reviews /> } />
         </Route>
 

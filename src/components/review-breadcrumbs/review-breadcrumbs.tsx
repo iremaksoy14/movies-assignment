@@ -11,11 +11,9 @@ function ReviewBreadcrumbs({nameActiveFilm}: ReviewBreadcrumbsProps): JSX.Elemen
     <nav className="breadcrumbs">
       <ul className="breadcrumbs__list">
         <li className="breadcrumbs__item">
-          <Link className="breadcrumbs__link" to={`/films/${idActiveFilm}/overview`}>{nameActiveFilm}</Link>
+          <Link className="breadcrumbs__link" to={`/films/${idActiveFilm}/overview`}></Link>
         </li>
-        <li className="breadcrumbs__item">
-          <span className="breadcrumbs__link">Add review</span>
-        </li>
+      
       </ul>
     </nav>
   );

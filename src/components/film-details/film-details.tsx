@@ -1,40 +1,45 @@
-import React from 'react';
+/* eslint-disable */
+import React,{useEffect,useState} from 'react';
 import { useAppSelector } from '../../hooks/index';
-import { translateRuntime } from '../../utils/translate-runtime';
-import { getFilm } from '../../store/data-process/selectors';
-
+import {  useParams } from 'react-router-dom';
 function FilmDetails(): JSX.Element {
   const activeFilm = useAppSelector(getFilm);
-  const {director, starring, genre, released, runTime} = activeFilm;
-  const actors = starring.map((star) => <div key={star}>{star}</div>);
+  const {id: idActiveFilm} = useParams();
+  const films = useAppSelector(getFilms);
+  const [getFildId,setGetFilmId]=useState({})
 
+ 
+ useEffect(()=>{
+films.map((item)=>{
+    if(item.id==idActiveFilm){
+      setGetFilmId(item)
+ }
+  })
+},[films])
+
+console.log("getFildId",getFildId)
   return (
     <div className="film-card__text film-card__row">
       <div className="film-card__text-col">
         <p className="film-card__details-item">
-          <strong className="film-card__details-name">Director</strong>
-          <span className="film-card__details-value">{director}</span>
+          <strong className="film-card__details-name">Type</strong>
+          <span className="film-card__details-value">{activeFilm.Type}</span>
         </p>
-        <div className="film-card__details-item">
-          <strong className="film-card__details-name">Starring</strong>
-          <div className="film-card__details-value">
-            {actors}
-          </div>
-        </div>
+       
       </div>
 
       <div className="film-card__text-col">
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Run Time</strong>
-          <span className="film-card__details-value">{translateRuntime(runTime)}</span>
+          <span className="film-card__details-value">{activeFilm.Year}</span>
         </p>
         <p className="film-card__details-item">
-          <strong className="film-card__details-name">Genre</strong>
-          <span className="film-card__details-value">{genre}</span>
+          <strong className="film-card__details-name">Type</strong>
+          <span className="film-card__details-value">{activeFilm.Type}</span>
         </p>
         <p className="film-card__details-item">
-          <strong className="film-card__details-name">Released</strong>
-          <span className="film-card__details-value">{released}</span>
+          <strong className="film-card__details-name">Title</strong>
+          <span className="film-card__details-value">{activeFilm.Title}</span>
         </p>
       </div>
     </div>
