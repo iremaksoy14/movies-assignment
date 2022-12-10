@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState,useContext,useRef } from 'react';
 import { FormEvent, ChangeEvent } from 'react';
 import style from './Sign-in-page.module.css';
+
 import cn from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../hooks/index';
@@ -8,14 +9,52 @@ import { loginAction } from '../../store/api-actions';
 import { AuthData } from '../../types/auth-data';
 import { AppRoute } from '../../constants/constants';
 import Logo from '../../components/logo/logo';
+import { Button, Col, Container, Form, Navbar } from "react-bootstrap";
+import { AuthContext } from "../../context/AuthContext";
+import { auth } from "../../firebaseSetup";
 import Footer from '../../components/footer/footer';
 import { PASSWORD_REGEXP, ServerResponseStatusCode } from '../../constants/constants';
 import { getError } from '../../store/ui-process/selectors';
+import { sign } from 'crypto';
 
 function SignInPage(): JSX.Element {
+  const user = useContext(AuthContext);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const error = useAppSelector(getError);
+  const createAccount = async () => {
+    try {
+      await auth.createUserWithEmailAndPassword(
+        emailRef.current!.value,
+        passwordRef.current!.value
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const signIn = async (event) => {
+    event.preventDefault()
+    try {
+      await auth.signInWithEmailAndPassword(
+        emailRef.current!.value,
+        passwordRef.current!.value
+      );
+      navigate(AppRoute.Root);
+    } catch (error) {
+      navigate("/login");
+
+      console.error(error);
+    }
+  };
+
+  const signOut = async () => {
+    await auth.signOut();
+  };
+
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -66,11 +105,7 @@ function SignInPage(): JSX.Element {
       </header>
 
       <div className="sign-in user-page__content">
-        <form
-          action="#"
-          className="sign-in__form"
-          onSubmit={handleSubmit}
-        >
+       
 
           <div className="sign-in__message">
             <p className={style.message}>
@@ -86,7 +121,7 @@ function SignInPage(): JSX.Element {
 
           <div className="sign-in__fields">
             <div className={cn('sign-in__field', {'sign-in__field--error': !isEmailValid})}>
-              <input
+              <input ref={emailRef} 
                 className="sign-in__input"
                 type="email"
                 placeholder="Email address"
@@ -98,7 +133,7 @@ function SignInPage(): JSX.Element {
               <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
             </div>
             <div className={cn('sign-in__field', {'sign-in__field--error': !isPasswordValid})}>
-              <input
+              <input  ref={passwordRef}
                 className="sign-in__input"
                 type="password"
                 placeholder="Password"
@@ -111,14 +146,15 @@ function SignInPage(): JSX.Element {
             </div>
           </div>
           <div className="sign-in__submit">
-            <button
+           
+            <button  onClick={signIn}
               className="sign-in__btn"
-              type="submit"
+            
             >
               Sign in
             </button>
           </div>
-        </form>
+       
       </div>
 
       <Footer/>

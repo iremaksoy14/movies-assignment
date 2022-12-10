@@ -21,6 +21,7 @@ export const createFakeFilm = (): FilmType => ({
   genre: faker.music.genre(),
   released: faker.datatype.number({ min: 1990, max: 2020 }),
   isFavorite: faker.datatype.boolean(),
+  
 });
 
 export const createFakeFilms = (count: number): FilmType[] => Array.from({length: count}, () => createFakeFilm());

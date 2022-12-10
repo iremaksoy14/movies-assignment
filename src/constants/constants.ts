@@ -35,7 +35,7 @@ export enum FilmTabs {
   Reviews = 'Reviews',
 }
 
-export const Tabs = ['Overview', 'Details', 'Reviews'];
+export const Tabs = ['Overview', 'Reviews'];
 
 export const PASSWORD_REGEXP = /^[0-9a-zA-Z]+$/;
 

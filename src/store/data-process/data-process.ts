@@ -49,6 +49,9 @@ export const dataProcess = createSlice({
     changeGenre: (state, action) => {
       state.activeGenre = action.payload;
     },
+    getFilmsData: (state, action) => {
+      state.films = action.payload;
+    }
   },
   extraReducers(builder) {
     builder
@@ -100,4 +103,4 @@ export const dataProcess = createSlice({
   }
 });
 
-export const {changeGenre} = dataProcess.actions;
+export const {changeGenre,getFilmsData} = dataProcess.actions;
