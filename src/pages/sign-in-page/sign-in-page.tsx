@@ -12,19 +12,12 @@ import Logo from '../../components/logo/logo';
 import { Button, Col, Container, Form, Navbar } from "react-bootstrap";
 import { AuthContext } from "../../context/AuthContext";
 import { auth } from "../../firebaseSetup";
-import { Button, Col, Container, Form, Navbar } from "react-bootstrap";
-import { AuthContext } from "../../context/AuthContext";
-import { auth } from "../../firebaseSetup";
 import Footer from '../../components/footer/footer';
 import { PASSWORD_REGEXP, ServerResponseStatusCode } from '../../constants/constants';
 import { getError } from '../../store/ui-process/selectors';
-import { sign } from 'crypto';
+
 
 function SignInPage(): JSX.Element {
-  const user = useContext(AuthContext);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
-
   const user = useContext(AuthContext);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -161,7 +154,7 @@ function SignInPage(): JSX.Element {
           <div className="sign-in__submit">
            
            
-            <button  onClick={signIn}  onClick={signIn}
+            <button onClick={signIn}
               className="sign-in__btn"
             
             >

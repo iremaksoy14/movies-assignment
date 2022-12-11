@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React,{useEffect,useState} from 'react';
 import { useAppSelector } from '../../hooks/index';
 import {  useParams } from 'react-router-dom';
